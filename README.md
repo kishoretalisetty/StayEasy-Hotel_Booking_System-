@@ -13,20 +13,28 @@ The Hotel Booking System is a Spring Boot application that provides APIs for man
 
 ## Authentication and Authorization
 
+### Overview
+
+Authentication and authorization are crucial aspects of the Hotel Booking System. They ensure that users can securely access the system's features while maintaining proper permissions and data security.
+
 ### Authentication
 
-Authentication is the process of verifying the identity of a user or system. In this project, authentication is implemented using JSON Web Tokens (JWT). When a user registers or logs in, the system generates a JWT token containing information about the user, such as their username and role. This token is then sent back to the client and included in subsequent requests to authenticate the user.
+Authentication in the Hotel Booking System is handled using JSON Web Tokens (JWT). When a user registers or logs in, the system generates a JWT token containing the user's identity information. This token is then included in subsequent requests to authenticate the user.
+
+To authenticate a user and generate a JWT token, use the following endpoint:
+
+- **POST /authenticate**: Authenticate a user and generate a JWT token.
+
+The JWT token must be included in the request headers of protected endpoints for successful authentication.
 
 ### Authorization
 
-Authorization is the process of determining whether a user has permission to access a specific resource or perform a certain action. In this project, authorization is role-based, meaning certain actions or endpoints are restricted based on the role of the user.
+Authorization in the Hotel Booking System is role-based, meaning certain actions or endpoints are restricted based on the user's role. The available roles include:
 
-For example:
-- A regular user may only be authorized to book a room or view available hotels.
-- A manager or admin user may have additional permissions, such as creating or updating hotels, or viewing booked rooms.
+- **Customer**: Regular users who can book rooms and view available hotels.
+- **Manager/Admin**: Users with additional permissions, such as creating, updating, or deleting hotels.
 
-Spring Security annotations are used to enforce authorization rules. These annotations can be applied at the method or class level to specify which roles are allowed to access certain endpoints.
-
+Authorization rules are enforced using Spring Security annotations. These annotations specify which roles are allowed to access specific endpoints.
 
 
 ## Technologies Used
