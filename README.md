@@ -11,6 +11,24 @@ The Hotel Booking System is a Spring Boot application that provides APIs for man
 - **Room Booking**: Users can book hotel rooms by specifying check-in and check-out dates.
 - **Authorization and Access Control**: Different endpoints are secured with role-based access control. Users with roles such as ADMIN, MANAGER, and CUSTOMER have access to specific endpoints based on their roles.
 
+## Authentication and Authorization
+
+### Authentication
+
+Authentication is the process of verifying the identity of a user or system. In this project, authentication is implemented using JSON Web Tokens (JWT). When a user registers or logs in, the system generates a JWT token containing information about the user, such as their username and role. This token is then sent back to the client and included in subsequent requests to authenticate the user.
+
+### Authorization
+
+Authorization is the process of determining whether a user has permission to access a specific resource or perform a certain action. In this project, authorization is role-based, meaning certain actions or endpoints are restricted based on the role of the user.
+
+For example:
+- A regular user may only be authorized to book a room or view available hotels.
+- A manager or admin user may have additional permissions, such as creating or updating hotels, or viewing booked rooms.
+
+Spring Security annotations are used to enforce authorization rules. These annotations can be applied at the method or class level to specify which roles are allowed to access certain endpoints.
+
+
+
 ## Technologies Used
 
 - Java
